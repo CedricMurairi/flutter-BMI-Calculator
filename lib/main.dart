@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
+import 'second_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,12 +10,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: Home_page(),
+      initialRoute: '/',
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xFF0A0E21),
         scaffoldBackgroundColor: Color(0xFF0A0E21),
         accentColor: Colors.blueAccent,
       ),
+      routes: {
+        '/': (context) => Home_page(),
+        '/second': (context) => Result(),
+      },
     );
   }
 }
