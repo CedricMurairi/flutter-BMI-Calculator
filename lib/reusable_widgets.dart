@@ -51,3 +51,22 @@ class BottomBar extends StatelessWidget {
     );
   }
 }
+
+class CardButton extends StatelessWidget {
+  CardButton({this.onPressed, this.icon});
+
+  final Function onPressed;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      shape: CircleBorder(),
+      padding: EdgeInsets.all(8),
+      fillColor: Colors.grey,
+      constraints: BoxConstraints(maxHeight: 500, maxWidth: 500),
+      onPressed: onPressed,
+      child: Icon(icon),
+    );
+  }
+}

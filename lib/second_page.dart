@@ -19,7 +19,7 @@ class Result extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: Color(0xFF1D1E33),
               ),
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.all(5),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,7 +43,7 @@ class Result extends StatelessWidget {
           BottomBar(
             textDisplay: "Get back to home",
             onTap: () {
-              Navigator.pop(context, Home_page());
+              Navigator.pop(context, HomePage());
             },
           )
         ],
