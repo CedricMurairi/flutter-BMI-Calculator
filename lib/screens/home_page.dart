@@ -133,21 +133,22 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                      color: activeColor,
-                      cardChild: LastReusableContainer(
-                        textToDisplay: "AGE",
-                        mainVariable: age.toString(),
-                        whenPressedIncrease: () {
-                          setState(() {
-                            age++;
-                          });
-                        },
-                        whenPressedDecrease: () {
-                          setState(() {
-                            age--;
-                          });
-                        },
-                      )),
+                    color: activeColor,
+                    cardChild: LastReusableContainer(
+                      textToDisplay: "AGE",
+                      mainVariable: age.toString(),
+                      whenPressedIncrease: () {
+                        setState(() {
+                          age++;
+                        });
+                      },
+                      whenPressedDecrease: () {
+                        setState(() {
+                          age--;
+                        });
+                      },
+                    ),
+                  ),
                 ),
               ],
             ),

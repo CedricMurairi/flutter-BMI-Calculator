@@ -1,6 +1,6 @@
 import 'package:app/constants.dart';
-import 'package:app/home_page.dart';
-import 'package:app/reusable_widgets.dart';
+import 'home_page.dart';
+import 'package:app/reusable_components/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {

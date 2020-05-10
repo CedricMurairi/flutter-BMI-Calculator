@@ -1,7 +1,7 @@
-import 'package:app/reusable_widgets.dart';
+import 'package:app/reusable_components/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'constants.dart';
+import 'package:app/constants.dart';
 
 class ReusableContainer extends StatelessWidget {
   ReusableContainer({@required this.text, this.icon});
