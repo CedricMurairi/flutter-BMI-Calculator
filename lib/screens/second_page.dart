@@ -6,16 +6,26 @@ import 'package:flutter/material.dart';
 import 'saved_bmi_page.dart';
 
 class Result extends StatelessWidget {
-  Result({this.bmiResult, this.conclusion});
+  Result({this.bmiResult, this.conclusion, this.color});
 
   final double bmiResult;
   final String conclusion;
+  final Color color;
 
   void saveEntry(context, result, text) {
     DateTime time = DateTime.now();
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return SavedBMICalculation(result: bmiResult, conclusion: conclusion, time: time,);
-    }));
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return SavedBMICalculation(
+            result: this.bmiResult,
+            conclusion: this.conclusion,
+            time: time,
+          );
+        },
+      ),
+    );
   }
 
   @override
@@ -44,12 +54,13 @@ class Result extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     bmiResult.toString(),
-                    style: numberStyle,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 50,
+                      color: color,
+                    ),
                   ),
-                  Text(
-                    conclusion,
-                    style: styleText,
-                  ),
+                  Text(conclusion, style: styleText),
                   FlatButton(
                     padding: EdgeInsets.only(
                       left: 90,

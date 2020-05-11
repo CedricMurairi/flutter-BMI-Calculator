@@ -212,6 +212,7 @@ class _HomePageState extends State<HomePage> {
                     return Result(
                       bmiResult: calculator.calculateBMI(),
                       conclusion: calculator.conclude(),
+                      color: calculator.getColor(),
                     );
                   },
                 ),

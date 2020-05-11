@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'BMI Calculator',
       initialRoute: '/',
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xFF0A0E21),
