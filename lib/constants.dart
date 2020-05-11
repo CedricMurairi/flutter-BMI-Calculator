@@ -11,6 +11,8 @@ const styleText = TextStyle(
   color: Color(0xFF8D8E98),
 );
 
+List<Widget> savedItems = [];
+
 const numberStyle = TextStyle(
   fontWeight: FontWeight.w900,
   fontSize: 50,
