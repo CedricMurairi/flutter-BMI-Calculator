@@ -27,7 +27,7 @@ class ReusableContainer extends StatelessWidget {
   }
 }
 
-class LastReusableContainer extends StatelessWidget {
+class LastReusableContainer extends StatefulWidget {
   LastReusableContainer(
       {this.textToDisplay,
       this.mainVariable,
@@ -38,31 +38,37 @@ class LastReusableContainer extends StatelessWidget {
   final String mainVariable;
   final Function whenPressedDecrease;
   final Function whenPressedIncrease;
+
+  @override
+  _LastReusableContainerState createState() => _LastReusableContainerState();
+}
+
+class _LastReusableContainerState extends State<LastReusableContainer> {
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          textToDisplay,
+          widget.textToDisplay,
           style: styleText,
         ),
         Text(
-          mainVariable,
+          widget.mainVariable,
           style: numberStyle,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CardButton(
-              onPressed: whenPressedDecrease(),
+              onPressed: widget.whenPressedDecrease(),
               icon: FontAwesomeIcons.minus,
             ),
             SizedBox(
               width: 10,
             ),
             CardButton(
-              onPressed: whenPressedIncrease(),
+              onPressed: widget.whenPressedIncrease(),
               icon: FontAwesomeIcons.plus,
             )
           ],

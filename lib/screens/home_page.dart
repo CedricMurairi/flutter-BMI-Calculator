@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_container.dart';
-import 'reusable_widgets.dart';
-import 'constants.dart';
+import 'package:app/reusable_components/reusable_container.dart';
+import 'package:app/reusable_components/reusable_widgets.dart';
+import 'package:app/constants.dart';
 import 'second_page.dart';
+import 'package:app/logic/calculator.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -115,38 +116,84 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: ReusableCard(
                     color: activeColor,
-                    cardChild: LastReusableContainer(
-                      textToDisplay: "WEIGHT",
-                      mainVariable: weight.toString(),
-                      whenPressedIncrease: () {
-                        setState(() {
-                          weight++;
-                        });
-                      },
-                      whenPressedDecrease: () {
-                        setState(() {
-                          weight--;
-                        });
-                      },
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "WEIGHT",
+                          style: styleText,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: numberStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            CardButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                              icon: FontAwesomeIcons.minus,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            CardButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                              icon: FontAwesomeIcons.plus,
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     color: activeColor,
-                    cardChild: LastReusableContainer(
-                      textToDisplay: "AGE",
-                      mainVariable: age.toString(),
-                      whenPressedIncrease: () {
-                        setState(() {
-                          age++;
-                        });
-                      },
-                      whenPressedDecrease: () {
-                        setState(() {
-                          age--;
-                        });
-                      },
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "AGE",
+                          style: styleText,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: numberStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            CardButton(
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                              icon: FontAwesomeIcons.minus,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            CardButton(
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                              icon: FontAwesomeIcons.plus,
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -156,11 +203,16 @@ class _HomePageState extends State<HomePage> {
           BottomBar(
             textDisplay: "Calculate BMI",
             onTap: () {
+              BMICalculator calculator =
+                  BMICalculator(height: height, weight: weight);
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Result();
+                    return Result(
+                      bmiResult: calculator.calculateBMI(),
+                      conclusion: calculator.conclude(),
+                    );
                   },
                 ),
               );
